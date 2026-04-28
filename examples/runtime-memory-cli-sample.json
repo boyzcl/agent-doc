@@ -1,0 +1,29 @@
+{
+  "timestamp": "2026-04-28T18:30:00+08:00",
+  "session_id": "replace-with-new-session-id",
+  "host": "codex",
+  "skill_name": "agent-doc",
+  "scene": "runtime-host-validation",
+  "project_profile": "skill-maintenance",
+  "doc_type": "skill-readme",
+  "governance_problem": "the skill now has runtime scripts and policy docs, but the next operator still needs a stable real-host entrypoint instead of reconstructing the flow from scattered notes",
+  "objective": "verify the installed-host runtime flow and leave a reusable quickstart path for the next maintainer",
+  "artifacts_produced": [
+    "docs/runtime-quickstart.md",
+    "README runtime integration update"
+  ],
+  "what_worked": "using a bounded host-validation loop after the synthetic smoke test reduces the risk of stopping at abstract implementation completeness",
+  "what_failed": "relying only on temporary-root smoke tests leaves uncertainty about whether the default host path and operator flow are actually usable",
+  "local_fix_applied": "add a quickstart path and run one bounded capture-read-promote-report loop on the real host runtime root",
+  "remaining_risk": "claude-code and openclaw still remain experimental until the same flow is verified there",
+  "next_input": "after codex host validation is stable, decide whether to add stronger dedup and repo-candidate reconcile logic or wait for more real captures",
+  "candidate_pattern_tags": [
+    "real-host-validation-after-temp-smoke",
+    "runtime-quickstart-after-host-validation"
+  ],
+  "candidate_failure_tags": [
+    "stop-at-synthetic-validation",
+    "runtime-adoption-without-operator-entrypoint"
+  ],
+  "promotion_hint": "review_for_field_note"
+}

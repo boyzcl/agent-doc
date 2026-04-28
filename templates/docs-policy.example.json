@@ -1,0 +1,90 @@
+{
+  "required_files": [
+    "README.md",
+    "docs/index.md",
+    "docs/authority-map.md"
+  ],
+  "required_one_of": [
+    {
+      "name": "root_agent_doc",
+      "paths": [
+        "AGENTS.md",
+        "CLAUDE.md",
+        "ROOT_AGENT.md"
+      ]
+    }
+  ],
+  "ignore_paths": [
+    "archive/",
+    "artifacts/",
+    "reports/"
+  ],
+  "metadata_rules": [
+    {
+      "match": "^docs/(authority-map\\.md|conventions/.+\\.md|runbooks/.+\\.md)$",
+      "required_fields": [
+        "Title",
+        "Type",
+        "Layer",
+        "Mode",
+        "Status",
+        "Owner",
+        "Source of Truth"
+      ],
+      "allowed_values": {
+        "Status": [
+          "draft",
+          "active",
+          "deprecated",
+          "superseded",
+          "archived"
+        ],
+        "Source of Truth": [
+          "yes",
+          "no"
+        ]
+      }
+    }
+  ],
+  "section_rules": [
+    {
+      "match": "^(AGENTS|CLAUDE|ROOT_AGENT)\\.md$",
+      "required_sections": [
+        "## Project Map",
+        "## Read First",
+        "## Commands",
+        "## Rules",
+        "## Completion Rules",
+        "## External Docs"
+      ]
+    },
+    {
+      "match": "^docs/authority-map\\.md$",
+      "required_sections": [
+        "## Navigation Register",
+        "## Topic Register",
+        "## Conflict Rules",
+        "## Evidence Boundaries"
+      ]
+    },
+    {
+      "match": "^docs/runbooks/.+\\.md$",
+      "required_sections": [
+        "## Prerequisites",
+        "## Steps",
+        "## Verify",
+        "## Rollback"
+      ]
+    }
+  ],
+  "line_limits": [
+    {
+      "match": "^(AGENTS|CLAUDE|ROOT_AGENT)\\.md$",
+      "warn_if_over": 200
+    },
+    {
+      "match": "^docs/index\\.md$",
+      "warn_if_over": 200
+    }
+  ]
+}

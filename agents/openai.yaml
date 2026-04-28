@@ -1,0 +1,7 @@
+interface:
+  display_name: "Agent DOC"
+  short_description: "面向 Agent 的项目文档治理与协同规范 Skill"
+  default_prompt: "Use $agent-doc to audit, repair, or design a project's documentation system when entrypoints, authority, history, evidence, retrofit scope, or document governance are unclear. Keep the protocol split: repository assets stay public and stable, while local runtime captures stay in the resolved host runtime root rather than the repo working copy. Read only a small amount of recent runtime context, write sanitized runtime captures locally, and treat repo candidates as review-only artifacts instead of auto-publishing changes."
+
+policy:
+  allow_implicit_invocation: true
