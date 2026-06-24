@@ -86,3 +86,13 @@
 - [examples/runtime-memory-cli-sample.json](examples/runtime-memory-cli-sample.json)：runtime capture 示例输入
 - [templates/](templates/)：可直接复制的模板
 - [examples/minimal-project/](examples/minimal-project/)：匿名化最小示例
+
+## 本地验证
+
+提交前可以运行与 CI 一致的最小检查：
+
+```bash
+python3 -m py_compile scripts/*.py
+python3 scripts/check_docs.py --root examples/minimal-project --config templates/docs-policy.example.json
+python3 scripts/smoke_test_runtime_memory.py
+```
