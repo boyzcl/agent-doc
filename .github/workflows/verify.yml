@@ -1,0 +1,27 @@
+name: Verify
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Compile Python scripts
+        run: python -m py_compile scripts/*.py
+
+      - name: Check minimal project docs
+        run: python scripts/check_docs.py --root examples/minimal-project --config templates/docs-policy.example.json
+
+      - name: Run runtime memory smoke test
+        run: python scripts/smoke_test_runtime_memory.py
